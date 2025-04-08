@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "User Action Sniffer (Ultimate+Delta+WebNav)",
+  "version": "1.1",
+  "description": "Собирает клики, скролл, DOM, клавиши, мышь, вкладки, окно, webNavigation + время delta.",
+  "permissions": [
+    "storage",
+    "scripting",
+    "tabs",
+    "activeTab",
+    "webNavigation"
+  ],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  }
+}
